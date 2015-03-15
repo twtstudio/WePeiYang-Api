@@ -1,0 +1,34 @@
+{
+  "name": "WePeiYang-Api",
+  "version": "0.0.1",
+  "description": "Api server for WePeiYang mobile application.",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^0.9.0",
+    "bcrypt": "^0.8.1",
+    "dateformat": "^1.0.11",
+    "cheerio": "^0.17.0",
+    "iconv-lite": "^0.4.4",
+    "node-mysql": "^0.4.2",
+    "mysql": "^2.5.5",
+    "request": "^2.47.0",
+    "serializer": "^0.0.3",
+    "sequelize": "^2.0.4",
+    "restify": "^2.8.3",
+    "xml2js": "^0.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lomanyong/WePeiYang-Api.git"
+  },
+  "author": "Yong",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/lomanyong/WePeiYang-Api/issues"
+  },
+  "homepage": "https://github.com/lomanyong/WePeiYang-Api"
+}
