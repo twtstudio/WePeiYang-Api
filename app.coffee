@@ -6,6 +6,7 @@ studyrooms = require './apis/studyrooms/api'
 library = require './apis/library/api'
 auth = require './apis/auth/api'
 news = require './apis/news/api'
+gpa = require './apis/gpa/api'
 App = require './model/App'
 
 server = restify.createServer
@@ -17,6 +18,7 @@ server.use restify.gzipResponse()
 
 # check user-agent
 server.use (req, res, next) ->
+  console.log 'check user agent'
   if req.headers['user-agent']
     next()
   else
@@ -24,6 +26,7 @@ server.use (req, res, next) ->
 
 # check app token
 server.use (req, res, next) ->
+  console.log 'check app token'
   if req.query.appkey and req.query.token
     App.getByAppkey req.query.appkey, (err, app) ->
       if err || app is null
@@ -47,10 +50,12 @@ server.use (req, res, next) ->
 
 # check user token
 server.use (req, res, next) ->
+  console.log 'check user token'
   next()
 
 # request storage
 server.use (req, res, next) ->
+  console.log 'check request storage'
   next()
 
 paths =
@@ -63,6 +68,7 @@ server.get {path: '/api/library/info', version: '1'}, library.info
 server.get {path: '/api/auth/login', version: '1'}, auth.login
 server.get {path: '/api/news/:type', version: '1'}, news.list
 server.get {path: '/api/news/:type/:id', version: '1'}, news.detail
+server.get {path: '/api/gpa/query', version: '1'}, gpa.getGpa
 
 server.listen config.http.PORT, config.http.IP_ADDRESS, ->
   console.log "server is now listening on port #{ config.http.PORT }"

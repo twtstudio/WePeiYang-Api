@@ -5,7 +5,7 @@ module.exports.formatNumber = (number) ->
   if (number < 10)
     return '0' + number
   else
-    return number
+    return number.toString()
 
 module.exports.md5 = (string) ->
   crypto.createHash('md5').update(string).digest 'hex'
