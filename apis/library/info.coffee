@@ -61,12 +61,5 @@ extractBookInfo = (html) ->
 
 matchBookInfo = (book) ->
   item = {}
-  for info, i in book
-    switch i
-      when 1 then item.title = info
-      when 2 then item.author = info
-      when 3 then item.position = info
-      when 4 then item.currentloc = info
-      when 6 then item.rentdate = info
-      when 7 then item.backdate = info
+  [ item.title, item.author, item.position, item.currentloc, item.rentdate, item.backdate ] = [ book[1], book[2], book[3], book[4], book[6], book[7] ]
   return item

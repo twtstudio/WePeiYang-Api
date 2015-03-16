@@ -1,7 +1,7 @@
 auth = require './auth'
 
 module.exports.login = (req, res, next) ->
-  auth.login req, (result) ->
+  auth.login req.query.twtuname, req.query.twtpasswd, (result) ->
     res.send result
     next()
 
